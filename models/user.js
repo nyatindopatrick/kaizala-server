@@ -9,4 +9,16 @@ const userSchema = new Schema({
   long: { type: String, required: true },
 });
 
-module.exports = model('User', userSchema);
+
+const patient = new Schema({
+  phone: { type: Number, required: true },
+  symptomps: { type: Array, required: true },
+  diagnosis:{ type: String, required: true },
+  prescription: { type: String, required: true },
+  prescriptionQuantity: { type: Number, required: true }
+})
+
+const User = model('User', userSchema);
+const Patient = model('Patient', patient)
+
+module.exports = {User, Patient};
